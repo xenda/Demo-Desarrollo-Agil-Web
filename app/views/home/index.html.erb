@@ -1,0 +1,27 @@
+<h1>Tasks</h1>
+<ul id="tasksboard">
+  <% @tasks.each do |task| -%>
+    <li><%= task.name %>
+        <small><%= task.project.name %></small>
+    </li>
+  <% end -%>
+</ul>
+
+
+<%= link_to "New", new_task_path, :class => 'btn btn-primary' %>
+
+
+<script src="http://js.pusher.com/1.11/pusher.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+
+    var pusher = new Pusher('5362e0e1944084bd05cc');
+    var channel = pusher.subscribe('agile-open');
+    channel.bind('task:create', function(data) {
+
+      task_html = '<li>' + data.name + '<small>' + data.project_name + '</small></li>';
+      $(task_html).appendTo("#tasksboard").delay(300).fadeIn();
+
+    });
+  </script>
+

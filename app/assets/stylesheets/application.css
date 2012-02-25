@@ -1,0 +1,45 @@
+/* @override http://localhost:3000/assets/application.css?body=1 */
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require twitter/bootstrap
+ *= require_tree .
+*/
+
+#tasksboard {
+ margin: 0px;
+ padding: 0px;
+ overflow: auto;
+}
+
+#tasksboard li {
+	list-style-type: none;
+	padding: 20px;
+	float: left;
+	width: 160px;
+	height: 165px;
+	margin: 10px;
+	background: url(/assets/board.png) no-repeat;
+-webkit-transform:rotate(-2deg);
+	color: #ba3937;
+	font-size: 26px;
+	line-height: 1.6em;
+	font-family: 'Shadows Into Light Two', cursive;
+}
+
+#tasksboard li small {
+	clear: both;
+	display: block;
+	font-size: 16px;
+	color: #3d3d3d;
+	line-height: 1em;
+}
